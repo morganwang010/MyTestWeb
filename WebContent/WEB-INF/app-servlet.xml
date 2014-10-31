@@ -63,5 +63,8 @@
 		<!-- <property name="sessionManager" ref="sessionManager" /> -->
 		 
 	</bean>
-	
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" >
+		
+	</bean>
 </beans>
