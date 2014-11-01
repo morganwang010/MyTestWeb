@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<jsp:useBean id="loginForm"  class="org.chinavo.test.form.LoginForm" scope="request" />
 
 <h1>Identity Registration</h1>
-
-<form:form action="authenticate" commandName="loginForm" method='post'
+if you dont have a account, please rigist at <a href="regist">here</a>!
+<form:form action="authenticate" modelAttribute="loginForm" method='post'
 	accept-charset='UTF-8'>
 	<table>
 		<tr>
@@ -14,8 +15,8 @@
 		</tr>
 		<tr>
 			<td>Passphrase:</td>
-			<td><form:password path="passphrase" /></td>
-			<td><form:errors path="passphrase" cssClass="error" /></td>
+			<td><form:password path="password" /></td>
+			<td><form:errors path="password" cssClass="error" /></td>
 		</tr>
 		<tr>
 			<td></td>

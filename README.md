@@ -1,5 +1,15 @@
 ##The First Spring MVC Example##
 
+####2014-10-30####
+add the bean validation.
+and the mainly control is 
+
+public String regist(@ModelAttribute(value = "loginForm") @Valid LoginForm loginForm, BindingResult result, Model model)
+
+	{
+		return "/login";
+	}
+
 ####2014-10-29####
 the first exmaple about spring mvc.
 Make the spring found the annotation auto.

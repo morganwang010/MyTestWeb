@@ -4,11 +4,15 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-		
-		
-
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+		default-lazy-init="false">
 	
+	
+		
+    <!-- 加载配置属性文件 -->
+	<context:property-placeholder ignore-unresolvable="true" location="/WEB-INF/spring/jdbc.properties" />
+	
+	<!-- <import resource="shiro-context.xml" /> --> 
 	<mvc:annotation-driven />
 	 
 	 <context:component-scan base-package="org.chinavo.test" />
@@ -38,33 +42,12 @@
 	
 	<bean id="openfireLoginInterceptor" class="org.chinavo.test.OpenFireLoginInterceptor"/>
 	
-	<!-- 安全认证过滤器 -->
-	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-		 
-		<property name="loginUrl" value="/login" />
-		<property name="successUrl" value="" />
-		<property name="filters">
-            <map>
-            </map>
-        </property>
-		<property name="filterChainDefinitions">
-			<value>
-				/static/** = anon
-				/userfiles/** = anon
-				${adminPath}/login = authc
-				${adminPath}/logout = logout
-				${adminPath}/** = user
-		 	</value>
-		</property>
-	</bean>
-	
-	<mvc:view-controller path="/" view-name="/hello"/>
-	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-		<!-- <property name="sessionManager" ref="sessionManager" /> -->
-		 
-	</bean>
+	<mvc:view-controller path="/" view-name="/login"/>
+	 
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" >
-		
 	</bean>
+	 
+	
+    
 </beans>

@@ -11,7 +11,7 @@ public class LoginForm {
 
 	  @NotNull(message = "Passphrase field is mandatory.")
 	  @Size(min = 8, max = 50, message = "Passphrase field must be greater than 8 but less than 50 characters.")
-	  private String passphrase;
+	  private String password;
 
 	  public String getUsername() {
 	    return username;
@@ -21,11 +21,11 @@ public class LoginForm {
 	    this.username = username.trim();
 	  }
 
-	  public String getPassphrase() {
-	    return passphrase;
+	  public String getPassword() {
+	    return password;
 	  }
 
-	  public void setPassphrase(String passphrase) {
-	    this.passphrase = passphrase.trim();
+	  public void setPassword(String password) {
+	    this.password = password.trim();
 	  }
 }
